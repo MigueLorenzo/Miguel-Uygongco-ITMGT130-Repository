@@ -26,8 +26,9 @@ def three_number_average(x, y, z):
         the average of x, y, and z
     '''
     # Write your code below this line
-    x = 5
-    y = 10
-    z = 15
-    avg = (x + y + z)/3
-    print('The average of the three numbers is = %0.2f' %avg)
+x = float(input("Enter x: "))
+y = float(input("Enter y: "))
+z = float(input("Enter z: "))
+avg = (x + y + z)/3
+
+print('The average of the three numbers is = %0.2f' %avg)
