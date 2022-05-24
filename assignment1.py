@@ -26,12 +26,11 @@ def factorial(x):
         the factorial of the argument
     '''
     # Write your code below this line
-import math
-def fact(n):
-    return(math.factorial(n))
-num = int(input("Enter Number:"))
-f = fact(num)
-print("The factorial of", num, "is", f)
+if x==1:
+    return 1
+else:
+    return (x * factorial(x-1))
+print("The factorial of the argument is "+ str(factorial(5)))
 
 def classify_grade(number_grade):
     '''Item 2.
@@ -58,21 +57,22 @@ def classify_grade(number_grade):
         the letter grade equivalent of the number grade.
     '''
     # Write your code below this line
-number_grade = float(input("Enter numerical grade: "))
-if(100>=number_grade>=92):
-    print("A")
-if(91.9>=number_grade>=86):
-    print("B+")
-if(85.9>=number_grade>=80):
-    print("B")
-if(79.9>=number_grade>=74):
-    print("C+")
-if(73.9>=number_grade>=67):
-    print("C")
-if(66.9>=number_grade>=60):
-    print("D")
-if(59.9>=number_grade>=0):
-    print("F")
+if number_grade >=92 and number_grade <= 100:
+    return("A")
+elif number_grade >=86 and number_grade <=91.9:
+    return("B+")
+elif number_grade >=80 and number_grade <=85.9:
+    return("B")
+elif number_grade >=74 and number_grade <=79.9:
+    return("C+")
+elif number_grade >=67 and number_grade <=73.9:
+    return("C")
+elif number_grade >=60 and number_grade <=66.9:
+    return("D")
+elif number_grade >=0 and number_grade <=59.9:
+    return("F")
+number_grade = float(input("Enter Grade: "))
+print("The letter grade equivalent of the number grade is " + classify_grade(number_grade))
 
 def average_weight(item_quantity_1, item_weight_1, item_quantity_2, item_weight_2):
     '''Item 3.
@@ -99,12 +99,9 @@ def average_weight(item_quantity_1, item_weight_1, item_quantity_2, item_weight_
         the weighted average weight of one item.
     '''
     # Write your code below this line
-item_quantity_1 = int(input("Enter item quantity: "))
-item_weight_1 = float(input("Enter item weight"))
-item_quantity_2 = int(input("Enter item quantity: "))
-item_weight_2 = float(input("Enter item weight"))
-average_weight = (item_quantity_1 * item_weight_1 + item_quantity_2 * item_weight_2)/(item_weight_1 + item_weight_2)
-print("The weighted average weight of one item is", average_weight)
+return (item_weight_1* item_quantity_1 + item_weight_2 * item_quantity_2)/(item_quantity_1+item_quantity_2)
+print ("The weighted average weight of one item is ")
+print (average_weight(1, 2, 3, 4))
 
 def string_sum(string):
     '''Item 4.
