@@ -44,52 +44,52 @@ username1 = input("Kindly select a username from the list, @bongolpoc, @joaquin,
 username2 = input("Kindly select another username from the list, @bongolpoc, @joaquin, @chums, @jobenilagan, @joeilagan, @eeebeee")
 
 if (from_member in social_graph[to_member]["following"]) and (to_member in social_graph[from_member]["following"]):
-        return "friends"
-    elif to_member in social_graph[from_member]["following"]:
-        return "follower"
-    elif from_member in social_graph[to_member]["following"]:
-        return "followed by"
-    else:
-        return "no relationship"
+    return "friends"
+elif to_member in social_graph[from_member]["following"]:
+    return "follower"
+elif from_member in social_graph[to_member]["following"]:
+    return "followed by"
+else:
+    return "no relationship"
 
 social_graph = {
-        "@bongolpoc":{"first_name":"Joselito",
-                      "last_name":"Olpoc",
-                      "following":[
-                      ]
-        },
-        "@joaquin":  {"first_name":"Joaquin",
-                      "last_name":"Gonzales",
-                      "following":[
-                          "@chums","@jobenilagan"
-                      ]
-        },
-        "@chums" : {"first_name":"Matthew",
-                    "last_name":"Uy",
-                    "following":[
-                        "@bongolpoc","@miketan","@rudyang","@joeilagan"
-                    ]
-        },
-        "@jobenilagan":{"first_name":"Joben",
-                       "last_name":"Ilagan",
-                       "following":[
-                        "@eeebeee","@joeilagan","@chums","@joaquin"
-                       ]
-        },
-        "@joeilagan":{"first_name":"Joe",
-                      "last_name":"Ilagan",
-                      "following":[
-                        "@eeebeee","@jobenilagan","@chums"
-                      ]
-        },
-        "@eeebeee":  {"first_name":"Elizabeth",
-                      "last_name":"Ilagan",
-                      "following":[
-                        "@jobenilagan","@joeilagan"
-                      ]
-        }
+    "@bongolpoc":{"first_name":"Joselito",
+                  "last_name":"Olpoc",
+                  "following":[
+                  ]
+    },
+    "@joaquin":  {"first_name":"Joaquin",
+                  "last_name":"Gonzales",
+                  "following":[
+                      "@chums","@jobenilagan"
+                  ]
+    },
+    "@chums" : {"first_name":"Matthew",
+                "last_name":"Uy",
+                "following":[
+                    "@bongolpoc","@miketan","@rudyang","@joeilagan"
+                ]
+    },
+    "@jobenilagan":{"first_name":"Joben",
+                   "last_name":"Ilagan",
+                   "following":[
+                    "@eeebeee","@joeilagan","@chums","@joaquin"
+                   ]
+    },
+    "@joeilagan":{"first_name":"Joe",
+                  "last_name":"Ilagan",
+                  "following":[
+                    "@eeebeee","@jobenilagan","@chums"
+                  ]
+    },
+    "@eeebeee":  {"first_name":"Elizabeth",
+                  "last_name":"Ilagan",
+                  "following":[
+                    "@jobenilagan","@joeilagan"
+                  ]
     }
-print(relationship_status("username1","username2",social_graph))
+}
+print(relationship_status("@chums","@jobenilagan",social_graph))
 
 def tic_tac_toe(board):
     '''
@@ -119,33 +119,72 @@ def tic_tac_toe(board):
     # Write your code below this line
 symbol = '';
 
-    for row in range(0,len(board)-1):
-        for col in range(0,len(board[row])-2):
-            if board[row][col] == board[row][col+1] and board[row][col] == board[row][col+2]:
-                symbol = board[row][col]
+for row in range(0,len(board)-1):
+    for col in range(0,len(board[row])-2):
+        if board[row][col] == board[row][col+1] and board[row][col] == board[row][col+2]:
+            symbol = board[row][col]
 
-    for col in range(0,len(board)-1):
-        for row in range(0,len(board[col])-2):
-            if board[row][col] == board[row+1][col] and board[row][col] == board[row+2][col]:
-                symbol =  board[row][col]
 
-    for row in range(0,len(board)-1):
-        for col in range(0,len(board[row])-2):
-            if board[row][col] == board[row+1][col+1] and board[row][col] == board[row+2][col+2]:
-                symbol = board[row][col]
+for col in range(0,len(board)-1):
+    for row in range(0,len(board[col])-2):
+        if board[row][col] == board[row+1][col] and board[row][col] == board[row+2][col]:
+            symbol =  board[row][col]
 
-    for row in range(len(board)-1,-1,-1):
-        for col in range(0,len(board[row])-2):
-            if board[row][col] == board[row-1][col+1] and board[row][col] == board[row-2][col+2]:
-                symbol = board[row][col]
 
-    if symbol == '':
-        return "No Winner"
-    else:
-        return symbol
-print(tic_tac_toe(board))
+for row in range(0,len(board)-2):
+    for col in range(0,len(board[row])-2):
+        if board[row][col] == board[row+1][col+1] and board[row][col] == board[row+2][col+2]:
+            symbol = board[row][col]
 
-def eta(first_stop, second_stop, route_map):
+
+for row in range(len(board)-1,-1,-1):
+    for col in range(0,len(board[row])-2):
+        if board[row][col] == board[row-1][col+1] and board[row][col] == board[row-2][col+2]:
+            symbol = board[row][col]
+
+if symbol == '':
+    return "NO WINNER"
+else:
+    return symbol
+
+
+board1 = [
+['X','X','O'],
+['O','X','O'],
+['O','','X'],
+]
+
+board2 = [
+['X','X','O'],
+['O','X','O'],
+['','O','X'],
+]
+
+board3 = [
+['O','X','O'],
+['','O','X'],
+['X','X','O'],
+]
+
+board4 = [
+['X','X','X'],
+['O','X','O'],
+['O','','O'],
+]
+
+board5 = [
+['X','X','O'],
+['O','X','O'],
+['X','','O'],
+]
+
+board6 = [
+['X','X','O'],
+['O','X','O'],
+['X','',''],
+]
+
+print(tic_tac_toe(board6))
     '''
     Item 3.
     ETA. 10 points.
@@ -176,32 +215,30 @@ def eta(first_stop, second_stop, route_map):
         the time it will take the shuttle to travel from first_stop to second_stop
     '''
     # Write your code below this line
-origin = print("Choose your origin point from the list: ADMU, DLSU, UPD")
-destination = print("Choose your destination from the list: ADMU, DLSU, UPD")
-if(first_stop == "admu" and second_stop == "upd") or (first_stop == "upd" and second_stop == "admu"):
-    value = (route_map["upd", "admu"]["travel_time_mins"])
+if (first_stop == "admu" and second_stop == "upd") or (first_stop == "upd" and second_stop == "admu"):
+    value = (route_map["upd","admu"]["travel_time_mins"])
     return value
 
-elif(first_stop == "admu" and second_stop == "dlsu") or (first_stop == "dlsu" and second_stop == "admu"):
-    value = (route_map["admu", "dlsu"]["travel_time_mins"])
+elif (first_stop == "admu" and second_stop == "dlsu") or (first_stop == "dlsu" and second_stop == "admu"):
+    value = (route_map["admu","dlsu"]["travel_time_mins"])
     return value
 
-elif(first_stop == "dlsu" and second_stop == "upd") or (first_stop == "upd" and second_stop == "dlsu"):
-    value = (route_map["dlsu", "upd"]["travel_time_mins"])
+elif (first_stop == "dlsu" and second_stop == "upd") or (first_stop == "upd" and second_stop == "dlsu"):
+    value = (route_map["dlsu","upd"]["travel_time_mins"])
     return value
-
 else:
-    return("Invalid Input")
+    return ("Invalid Input")
 
-route_map = {
-    ("upd", "admu"):{
-        "travel_time_mins":10
-    },
-    ("admu", "dlsu"):{
-        "travel_time_mins":35
-    },
-    ("dlsu", "upd"):{
-        "travel_time_mins":55
-    }
-    }
-print("Estimated time of arrival: " + str(eta("origin", "destination", route_map))+ "minutes")
+legs = {
+("upd","admu"):{
+    "travel_time_mins":10
+},
+("admu","dlsu"):{
+    "travel_time_mins":35
+},
+("dlsu","upd"):{
+    "travel_time_mins":55
+}
+}
+
+print("estimated time of arrival: " + str(eta("dlsu", "admu", legs)) + "minutes")
